@@ -1,0 +1,637 @@
+[
+    {
+        "id": "2e8b3ae9ea5feb97",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a1b951c1b3b632ca",
+        "type": "mqtt in",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "",
+        "topic": "siri1/temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "687068d453a522ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 360,
+        "y": 320,
+        "wires": [
+            [
+                "0c9e7abf93c6df3a",
+                "bbb7ef306bf5eee9"
+            ]
+        ]
+    },
+    {
+        "id": "5fe4b04540b86a9e",
+        "type": "mqtt out",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "",
+        "topic": "master/siri",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "687068d453a522ba",
+        "x": 670,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "bbb7ef306bf5eee9",
+        "type": "debug",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "mqtt_in",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "35783d55eb7701a7",
+        "type": "mqtt in",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "",
+        "topic": "siri2/humi",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "687068d453a522ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 340,
+        "y": 460,
+        "wires": [
+            [
+                "a0a18d51acea03a7"
+            ]
+        ]
+    },
+    {
+        "id": "2543ac1675d6f2ef",
+        "type": "debug",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "mqtt_in",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "cb70541888e47652",
+        "type": "mqtt in",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "",
+        "topic": "sw01/name",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "687068d453a522ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 390,
+        "y": 580,
+        "wires": [
+            [
+                "0bf4471204f2f6f5"
+            ]
+        ]
+    },
+    {
+        "id": "0bf4471204f2f6f5",
+        "type": "debug",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "mqtt_in",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "0c9e7abf93c6df3a",
+        "type": "change",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "temp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 360,
+        "wires": [
+            [
+                "f0c0d85f48840e2a"
+            ]
+        ]
+    },
+    {
+        "id": "a0a18d51acea03a7",
+        "type": "change",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "humi",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 480,
+        "wires": [
+            [
+                "2543ac1675d6f2ef",
+                "92b35195a9578fbc"
+            ]
+        ]
+    },
+    {
+        "id": "f0c0d85f48840e2a",
+        "type": "ui_gauge",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "",
+        "group": "d94aa88dbecb28dd",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "อุณหภูมิ",
+        "label": "units",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 680,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "53fe3dd10a66bb55",
+        "type": "debug",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "debug 22",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "e48eeea8bcf3ac9e",
+        "type": "mqtt out",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "",
+        "topic": "master/siri",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "687068d453a522ba",
+        "x": 670,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "5e4470e9034cb0a9",
+        "type": "ui_led",
+        "z": "2e8b3ae9ea5feb97",
+        "order": 4,
+        "group": "d94aa88dbecb28dd",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#008000",
+                "value": "1",
+                "valueType": "str"
+            },
+            {
+                "color": "#ff0000",
+                "value": "0",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "LED-SYSTEM",
+        "x": 520,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "4c3ef0b02a42de95",
+        "type": "ui_button",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "",
+        "group": "d94aa88dbecb28dd",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "start",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "str",
+        "topic": "master/siri",
+        "topicType": "msg",
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "53fe3dd10a66bb55",
+                "5fe4b04540b86a9e",
+                "5e4470e9034cb0a9"
+            ]
+        ]
+    },
+    {
+        "id": "d55f23012a72c2c2",
+        "type": "ui_button",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "",
+        "group": "d94aa88dbecb28dd",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "stop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "master/siri",
+        "topicType": "msg",
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "5e4470e9034cb0a9",
+                "e48eeea8bcf3ac9e"
+            ]
+        ]
+    },
+    {
+        "id": "92b35195a9578fbc",
+        "type": "ui_gauge",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "",
+        "group": "d94aa88dbecb28dd",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "ความชิ้น",
+        "label": "units",
+        "format": "{{msg.payload}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 680,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "74ad936d3abf1949",
+        "type": "ui_led",
+        "z": "2e8b3ae9ea5feb97",
+        "order": 11,
+        "group": "d94aa88dbecb28dd",
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "0",
+                "valueType": "str"
+            },
+            {
+                "color": "#ffff00",
+                "value": "1",
+                "valueType": "str"
+            },
+            {
+                "color": "#008000",
+                "value": "2",
+                "valueType": "str"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "TEMP-LED",
+        "x": 750,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "cff89a4b664475d2",
+        "type": "mqtt in",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "",
+        "topic": "siri/led",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "687068d453a522ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 410,
+        "y": 660,
+        "wires": [
+            [
+                "10a8b68ddfa75658",
+                "9f804728e548ebb1"
+            ]
+        ]
+    },
+    {
+        "id": "70e13440c6e1bf4d",
+        "type": "mqtt in",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "",
+        "topic": "siri/control",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "687068d453a522ba",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "bfd212aab8d833be"
+            ]
+        ]
+    },
+    {
+        "id": "10a8b68ddfa75658",
+        "type": "debug",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "mqtt_in",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "9f804728e548ebb1",
+        "type": "function",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "function 1",
+        "func": "msg.payload = msg.payload.toString();\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 700,
+        "wires": [
+            [
+                "74ad936d3abf1949"
+            ]
+        ]
+    },
+    {
+        "id": "bfd212aab8d833be",
+        "type": "function",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "function 2",
+        "func": "msg.payload = msg.payload.toString();\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 160,
+        "wires": [
+            [
+                "5e4470e9034cb0a9"
+            ]
+        ]
+    },
+    {
+        "id": "29d48913ee52480e",
+        "type": "ui_text",
+        "z": "2e8b3ae9ea5feb97",
+        "group": "d94aa88dbecb28dd",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "สถานะระบบ เปิด-ปิด",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1170,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "a2640b6aa16149b3",
+        "type": "inject",
+        "z": "2e8b3ae9ea5feb97",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "master/siri",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 290,
+        "y": 40,
+        "wires": [
+            [
+                "5fe4b04540b86a9e",
+                "53fe3dd10a66bb55"
+            ]
+        ]
+    },
+    {
+        "id": "351f3b3c65eb795d",
+        "type": "ui_text",
+        "z": "2e8b3ae9ea5feb97",
+        "group": "d94aa88dbecb28dd",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "สถานะอุณหภูมิ ",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1020,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "687068d453a522ba",
+        "type": "mqtt-broker",
+        "name": "mqtt_control",
+        "broker": "broker.emqx.io",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "d94aa88dbecb28dd",
+        "type": "ui_group",
+        "name": "แผงควบคุมโรงเรือนที่1",
+        "tab": "42e6b03e23cc63cc",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "42e6b03e23cc63cc",
+        "type": "ui_tab",
+        "name": "หน้าหลัก",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
